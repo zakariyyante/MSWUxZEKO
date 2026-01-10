@@ -35,4 +35,5 @@ next-env.d.ts
 
 # Google Sheets credentials (NEVER commit this!)
 keys.json
+vercel-env-import.txt
 
