@@ -22,25 +22,31 @@ function normalizeDate(dateStr: string): string {
 
 export async function getSheetData() {
   try {
-    // Check if keys.json exists, otherwise fall back to environment variables
-    const keysPath = path.join(process.cwd(), 'keys.json')
     let auth;
 
-    if (fs.existsSync(keysPath)) {
-      // Use keys.json file
-      auth = new google.auth.GoogleAuth({
-        keyFile: keysPath,
-        scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
-      })
-    } else {
-      // Fall back to environment variables
+    // Priority 1: Use environment variables (for Vercel/production)
+    if (process.env.GOOGLE_CLIENT_EMAIL && process.env.GOOGLE_PRIVATE_KEY) {
+      console.log('Using environment variables for Google Auth')
       auth = new google.auth.GoogleAuth({
         credentials: {
           client_email: process.env.GOOGLE_CLIENT_EMAIL,
-          private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+          private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
         },
         scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
       })
+    } 
+    // Priority 2: Use keys.json file (for local development)
+    else {
+      const keysPath = path.join(process.cwd(), 'keys.json')
+      if (fs.existsSync(keysPath)) {
+        console.log('Using keys.json for Google Auth')
+        auth = new google.auth.GoogleAuth({
+          keyFile: keysPath,
+          scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
+        })
+      } else {
+        throw new Error('No Google credentials found. Set environment variables or add keys.json')
+      }
     }
 
     const sheets = google.sheets({ version: 'v4', auth })
