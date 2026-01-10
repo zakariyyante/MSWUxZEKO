@@ -1,0 +1,6 @@
+# Copy this content to a new file named: .env.local
+# (Create .env.local in the root folder)
+
+GOOGLE_SHEET_ID=1iZN_DNgUQ_ftuVOxf6ylKxTzfRFnyLLZKAsagUll_XA
+GOOGLE_SHEET_RANGE=Test_data!A2:Z
+
