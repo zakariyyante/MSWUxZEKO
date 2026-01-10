@@ -154,6 +154,7 @@ export default function DataTable({ data }: DataTableProps) {
           </tr>
         </tfoot>
       </table>
+      </div>
     </div>
   )
 }

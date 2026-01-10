@@ -1,0 +1,25 @@
+# Add these lines to your .env.local file
+
+# Your existing variables
+GOOGLE_SHEET_ID=1iZN_DNgUQ_ftuVOxf6ylKxTzfRFnyLLZKAsagUll_XA
+GOOGLE_SHEET_RANGE=Test_data!A2:Z
+
+# NEW: Add these OAuth variables for login to work
+# You need to create OAuth credentials first (see instructions below)
+GOOGLE_OAUTH_CLIENT_ID=your-oauth-client-id-here
+GOOGLE_OAUTH_CLIENT_SECRET=your-oauth-client-secret-here
+NEXTAUTH_SECRET=your-random-secret-here
+NEXTAUTH_URL=http://localhost:3000
+
+# How to get OAuth credentials:
+# 1. Go to: https://console.cloud.google.com/apis/credentials
+# 2. Click "CREATE CREDENTIALS" → "OAuth client ID"
+# 3. Type: Web application
+# 4. Authorized redirect URIs: http://localhost:3000/api/auth/callback/google
+# 5. Copy Client ID and Client Secret
+# 6. Paste them above
+
+# How to generate NEXTAUTH_SECRET:
+# Run in terminal: openssl rand -base64 32
+# Or use: https://generate-secret.vercel.app/32
+
