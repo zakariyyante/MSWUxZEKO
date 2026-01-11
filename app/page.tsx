@@ -13,7 +13,7 @@ export default function Home() {
         <header className="mb-6 md:mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div>
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100 mb-1 sm:mb-2">MSWUxZEKO Dashboard</h1>
-            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">Real-time marketing performance metrics</p>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">Real-time marketing performance</p>
             {session?.user?.email && (
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                 Signed in as: {session.user.email}
