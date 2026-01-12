@@ -22,7 +22,6 @@ export interface DashboardData {
 // Country code mapping
 const COUNTRY_CODES: Record<string, string[]> = {
   'NL': ['CXNL01', 'CXNL05'],
-  'FR': ['CXFR11'],
   'SE': ['CXSE01'],
 }
 
@@ -33,7 +32,7 @@ export default function Dashboard() {
   const [filteredRawData, setFilteredRawData] = useState<DashboardData[]>([])
   const [loading, setLoading] = useState(true)
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null)
-  const [selectedCountries, setSelectedCountries] = useState<string[]>(['NL', 'FR', 'SE'])
+  const [selectedCountries, setSelectedCountries] = useState<string[]>(['NL', 'SE'])
 
   // Fetch data from API
   const fetchData = async () => {
@@ -46,7 +45,7 @@ export default function Dashboard() {
         setData(result.tableData)
         setRawData(result.rawData)
         // Apply initial filter with all countries selected
-        applyFilters(result.tableData, result.rawData, ['NL', 'FR', 'SE'], '', '', '')
+        applyFilters(result.tableData, result.rawData, ['NL', 'SE'], '', '', '')
         setLastUpdated(new Date())
       }
     } catch (error) {

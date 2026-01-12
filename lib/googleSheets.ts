@@ -82,7 +82,7 @@ export async function getSheetData() {
     // N=FTD (index 13), O=Qualified FTD (index 14), H=Revenue (index 7)
     
     // Filter criteria
-    const allowedCodes = ['CXNL01', 'CXNL05', 'CXFR11', 'CXSE01']
+    const allowedCodes = ['CXNL01', 'CXNL05', 'CXSE01']
     const startDate = new Date('2025-11-01') // November 1st, 2025
     
     const rawData = rows

@@ -14,7 +14,7 @@ export default function Filters({ onFilter }: FiltersProps) {
   const [dateStart, setDateStart] = useState('')
   const [dateEnd, setDateEnd] = useState('')
   const [code, setCode] = useState('')
-  const [selectedCountries, setSelectedCountries] = useState<string[]>(['NL', 'FR', 'SE'])
+  const [selectedCountries, setSelectedCountries] = useState<string[]>(['NL', 'SE'])
 
   const handleCountryToggle = (country: string) => {
     if (selectedCountries.includes(country)) {
@@ -36,11 +36,11 @@ export default function Filters({ onFilter }: FiltersProps) {
     setDateStart('')
     setDateEnd('')
     setCode('')
-    setSelectedCountries(['NL', 'FR', 'SE'])
+    setSelectedCountries(['NL', 'SE'])
     onFilter({
       dateRange: { start: '', end: '' },
       code: '',
-      countries: ['NL', 'FR', 'SE'],
+      countries: ['NL', 'SE'],
     })
   }
 
@@ -60,15 +60,6 @@ export default function Filters({ onFilter }: FiltersProps) {
               className="w-4 h-4 text-blue-600 border-gray-300 dark:border-gray-600 rounded focus:ring-blue-500"
             />
             <span className="text-xs sm:text-sm text-gray-700 dark:text-gray-300">🇳🇱 Netherlands</span>
-          </label>
-          <label className="flex items-center gap-2 cursor-pointer">
-            <input
-              type="checkbox"
-              checked={selectedCountries.includes('FR')}
-              onChange={() => handleCountryToggle('FR')}
-              className="w-4 h-4 text-blue-600 border-gray-300 dark:border-gray-600 rounded focus:ring-blue-500"
-            />
-            <span className="text-xs sm:text-sm text-gray-700 dark:text-gray-300">🇫🇷 France</span>
           </label>
           <label className="flex items-center gap-2 cursor-pointer">
             <input
