@@ -1,11 +1,12 @@
 import NextAuth from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 
-// Allowed Gmail accounts - Only these 3 can access the dashboard
+// Allowed Gmail accounts - Only these 4 can access the dashboard
 const ALLOWED_EMAILS = [
   'musa@choixmedia.com',
   'musaefendi@gmail.com',
   'zakariyya.z@antetechnologies.com',
+  'turgut.b@antetechnologies.com',
 ]
 
 const handler = NextAuth({
